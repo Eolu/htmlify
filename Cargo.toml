@@ -1,0 +1,19 @@
+[package]
+name = "htmlify"
+version = "1.0.0"
+edition = "2018"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+authors = ["Griffin O'Neill <gsoneill1003@gmail.com>"]
+
+description = """
+Trait used to generate HTML from Rust structures.
+"""
+keywords = ["web", "html", "javascript", "wasm"]
+homepage = "https://github.com/Eolu/htmlify"
+repository = "https://github.com/Eolu/htmlify"
+categories = ["web", "web-programming", "wasm", "encoding"]
+documentation = "https://docs.rs/htmlify"
+
+[dependencies]
+web-sys = { version = "0.3", features = ["Window", "Document", "Element", "HtmlElement"] }
