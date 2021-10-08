@@ -12,7 +12,7 @@ Trait used to generate HTML from Rust structures.
 keywords = ["web", "html", "javascript", "wasm"]
 homepage = "https://github.com/Eolu/htmlify"
 repository = "https://github.com/Eolu/htmlify"
-categories = ["web", "web-programming", "wasm", "encoding"]
+categories = ["web-programming", "wasm", "encoding"]
 documentation = "https://docs.rs/htmlify"
 
 [dependencies]
