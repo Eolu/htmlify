@@ -10,7 +10,7 @@ fn attributes(&self) -> Vec<Attribute>;
 fn inner_html(&self) -> Cow<'static, str>;
 ```
 as well as the following definition which should not need to be implemented, but may on occasion be useful to be overridden:
-```ignore
+```rust,ignore
 fn as_raw_html(&self) -> String 
 {
     format!
@@ -27,6 +27,6 @@ fn as_raw_html(&self) -> String
 }
 ```
 Finally, the following may be called to get a structured js_sys type:
-```ignore
+```rust,ignore
 fn as_element(&self) -> Option<web_sys::Element>;
 ```
