@@ -34,6 +34,6 @@ fn as_element(&self) -> Option<web_sys::Element>;
 ```
 
 There are 3 other tools included in this crate:
-- An `Htmlify` implementation for `&str`. This is a special case which simply returns the string itself when `as_raw_html` is called, and returns `None` when `as_element` is called. This is so text-content "leaves" can be represented.
+- An `Htmlify` implementation for `&str`. This is a special case which simply returns the string itself when `as_raw_html` is called, and returns `None` when `as_element` is called. This is so text-content "leaves" can be represented. (and the default implementation of `as_element` understands this).
 - An `Attribute` struct to store key-value pairs as strings, used specifically for element attributes. These use `Cow<'static, str>` to leave optimization details up to the implementor.
 - An `append_to_document_body` function which takes any `impl Htmlify` and attempts to append it to the document body (through web_sys calls). This is here purely for convenience.
