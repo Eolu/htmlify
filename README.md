@@ -3,15 +3,18 @@ Trait used to generate HTML from Rust structures
 It contains the following optional definitions:
 ```rust,ignore
 // Defaults to an empty string
-fn tag(&self) -> Cow<'static, str>;
+fn tag(&self) -> Cow<'static, str> { /* ... */ }
 // Defaults to empty vec
-fn attributes(&self) -> Vec<Attribute>;
+fn attributes(&self) -> Vec<Attribute> { /* ... */ }
 // Defaults to empty vec
-fn inner_html(&self) -> Vec<Box<dyn Htmlify>>;
-// Calls `as_raw_html` for each of the items returned by `inner_html`
-fn inner_html_as_string(&self) -> String;
+fn inner_html(&self) -> Vec<Box<dyn Htmlify>> { /* ... */ }
 ```
-as well as the following definition which should not need to be implemented, but may on occasion be useful to be overridden:
+The following method should not need to be implemented:
+```rust,ignore
+// Calls `as_raw_html` for each of the items returned by `inner_html`
+fn inner_html_as_string(&self) -> String { /* ... */ }
+```
+The following definition also should not need to be implemented, but may on occasion be useful to override:
 ```rust,ignore
 fn as_raw_html(&self) -> String 
 {
@@ -30,7 +33,7 @@ fn as_raw_html(&self) -> String
 ```
 Finally, the following may be called to get a structured js_sys type:
 ```rust,ignore
-fn as_element(&self) -> Option<web_sys::Element>;
+fn as_element(&self) -> Option<web_sys::Element> { /* ... */ }
 ```
 
 There are 3 other tools included in this crate:
