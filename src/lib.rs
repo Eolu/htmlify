@@ -9,15 +9,9 @@ pub trait Htmlify
     /// Sets the HTML tag associated when converting this to an element.
     fn tag(&self) -> Cow<'static, str> { Cow::Borrowed("") }
     /// Sets the attributes to include when converting this to an element.
-    fn attributes(&self) -> Vec<Attribute>
-    {
-        vec!()
-    }
+    fn attributes(&self) -> Vec<Attribute> { vec!() }
     /// Get the inner HTML
-    fn inner_html(&self) -> Vec<Box<dyn Htmlify>>
-    {
-        vec!()
-    }
+    fn inner_html(&self) -> Vec<Box<dyn Htmlify>> { vec!() }
     /// Stringifies the inner HTML
     fn inner_html_as_string(&self) -> String
     {
