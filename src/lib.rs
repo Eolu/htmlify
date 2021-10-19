@@ -114,6 +114,7 @@ impl Htmlify for &str
     /// Strings are nothing but raw HTML
     fn as_raw_html(&self) -> String { self.to_string() }
     /// Raw strings are not elements, return None.
+    #[cfg(feature = "web-sys")]
     fn as_element(&self) -> Option<web_sys::Element> { None }
 }
 
