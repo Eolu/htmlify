@@ -31,6 +31,10 @@ fn as_raw_html(&self) -> String
     )
 }
 ```
+The `yew` feature may be enabled to allow access to the following default function:
+```rust,ignore
+fn as_yew_node(&self) -> Html { /* ... */ }
+```
 Finally, the following may be called to get a structured js_sys type:
 ```rust,ignore
 fn as_element(&self) -> Option<web_sys::Element> { /* ... */ }
