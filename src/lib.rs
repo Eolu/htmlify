@@ -1,5 +1,10 @@
 #![doc = include_str!("../README.md")]
 
+#[cfg(feature = "yew")]
+pub mod yew;
+#[cfg(feature = "yew")]
+use ::yew::{html, Html};
+
 use std::{borrow::{Borrow, Cow}, fmt::Display};
 
 /// Trait used to generate HTML from Rust structures. See module-level 
@@ -53,6 +58,20 @@ pub trait Htmlify
             }
         }
         Some(element)
+    }
+
+    /// Convert this into [::yew::Html]
+    #[cfg(feature = "yew")]
+    fn as_yew_node(&self) -> Html
+    {
+        html!
+        {
+            <crate::yew::RawHtml 
+                tag=self.tag().to_string() 
+                attributes={self.attributes()} 
+                html={self.inner_html_as_string()} 
+            />
+        }
     }
 }
 
