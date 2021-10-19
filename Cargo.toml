@@ -1,6 +1,6 @@
 [package]
 name = "htmlify"
-version = "1.1.1"
+version = "1.2.0"
 edition = "2018"
 license = "MIT OR Apache-2.0"
 readme = "README.md"
@@ -16,5 +16,5 @@ categories = ["web-programming", "wasm", "encoding"]
 documentation = "https://docs.rs/htmlify"
 
 [dependencies]
-web-sys = { version = "0.3", features = ["Window", "Document", "Element", "HtmlElement"] }
+web-sys = { version = "0.3", optional = true, features = ["Window", "Document", "Element", "HtmlElement"] }
 yew = { version = "0.18", optional = true }

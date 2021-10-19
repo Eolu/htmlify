@@ -38,6 +38,7 @@ pub trait Htmlify
         )
     }
     /// Convert this into a [web_sys::Element]
+    #[cfg(feature = "web-sys")]
     fn as_element(&self) -> Option<web_sys::Element>
     {
         let document = web_sys::window().and_then(|win| win.document())?;
@@ -119,6 +120,7 @@ impl Htmlify for &str
 /// Helper function which appends some `impl Htmlify` to the [web_sys] document 
 /// body. Combined with the rest of this crate, may be used to generate the entire 
 /// HTML body in arbitrary Rust-driven ways.
+#[cfg(feature = "web-sys")]
 pub fn append_to_document_body(htmlifiable: impl Htmlify) -> Result<(), impl std::fmt::Debug>
 { 
     web_sys::window()
