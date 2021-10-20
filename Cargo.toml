@@ -1,6 +1,6 @@
 [package]
 name = "htmlify"
-version = "1.2.0"
+version = "1.2.1"
 edition = "2018"
 license = "MIT OR Apache-2.0"
 readme = "README.md"
@@ -14,6 +14,9 @@ homepage = "https://github.com/Eolu/htmlify"
 repository = "https://github.com/Eolu/htmlify"
 categories = ["web-programming", "wasm", "encoding"]
 documentation = "https://docs.rs/htmlify"
+
+[package.metadata.docs.rs]
+all-features = true
 
 [dependencies]
 web-sys = { version = "0.3", optional = true, features = ["Window", "Document", "Element", "HtmlElement"] }
