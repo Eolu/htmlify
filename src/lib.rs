@@ -5,7 +5,7 @@ pub mod yew;
 #[cfg(feature = "yew")]
 use ::yew::{html, Html};
 
-use std::{borrow::{Borrow, Cow}, fmt::Display};
+use std::{borrow::Cow, fmt::Display};
 
 /// Trait used to generate HTML from Rust structures. See module-level 
 /// documentation for more details.
@@ -41,6 +41,7 @@ pub trait Htmlify
     #[cfg(feature = "web-sys")]
     fn as_element(&self) -> Option<web_sys::Element>
     {
+        use std::borrow::Borrow;
         let document = web_sys::window().and_then(|win| win.document())?;
         let element = document.create_element(self.tag().borrow()).ok()?;
         for attribute in self.attributes()
