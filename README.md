@@ -40,8 +40,7 @@ The `yew` feature may be enabled to allow access to the following default functi
 fn as_yew_node(&self) -> Html { /* ... */ }
 ```
 
-There are 4 other tools included in this crate:
+There are 3 other tools included in this crate:
 - An `Htmlify` implementation for `&str`. This is a special case which simply returns the string itself when `as_raw_html` is called, and returns `None` when `as_element` is called. This is so text-content "leaves" can be represented. (and the default implementation of `as_element` understands this).
 - An `Attribute` struct to store key-value pairs as strings, used specifically for element attributes. These use `Cow<'static, str>` to leave optimization details up to the implementor.
-- The `web-sys` feature also fives access to an `append_to_document_body` function which takes any `impl Htmlify` and attempts to append it to the document body (through web_sys calls). This is here purely for convenience.
-- If the `yew` feature is enabled, an `as_yew_node` function will also be available.
+- The `web-sys` feature also provides access to an `append_to_document_body` function which takes any `impl Htmlify` and attempts to append it to the document body (through web_sys calls). This is here purely for convenience.
