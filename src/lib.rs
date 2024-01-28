@@ -69,9 +69,9 @@ pub trait Htmlify
         html!
         {
             <crate::yew::RawHtml 
-                tag=self.tag().to_string() 
+                tag={self.tag().to_string() }
                 attributes={self.attributes()} 
-                html={self.inner_html_as_string()} 
+                html={Cow::from(self.inner_html_as_string())} 
             />
         }
     }
